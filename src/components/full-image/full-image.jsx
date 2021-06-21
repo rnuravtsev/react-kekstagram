@@ -16,6 +16,18 @@ const FullImage = () => {
     dispatch(closeFullImage())
   }
 
+  const escKeyPress = (evt) => {
+    const { key } = evt
+    if (key === "Escape") {
+      dispatch(closeFullImage())
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("keydown", escKeyPress, false)
+    return () => document.removeEventListener("keydown", escKeyPress, false)
+  }, [])
+
   return (
     <>
       {!isEmpty(currentFullImage) && (
