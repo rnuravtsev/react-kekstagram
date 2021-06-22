@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import isEmpty from "lodash/isEmpty"
 import { useDispatch, useSelector } from "react-redux"
 import OutsideClickHandler from "react-outside-click-handler/esm/OutsideClickHandler"
@@ -16,8 +16,7 @@ const FullImage = () => {
     dispatch(closeFullImage())
   }
 
-  const escKeyPress = (evt) => {
-    const { key } = evt
+  const escKeyPress = ({ key }) => {
     if (key === "Escape") {
       dispatch(closeFullImage())
     }
